@@ -47,7 +47,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border: 1px solid #ddd;
+  border: 1px solid hsl(0, 0%, 87%);
 }
 
 
@@ -67,6 +67,30 @@
 .edit-btn{
   background-color: #441e0f ;
 }
+
+.login-outer-div{
+    width: 350px;
+    margin: 100px auto;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+    background-color: rgb(38, 72, 77);
+    text-align: center;
+    font-family: Arial;
+    margin-left: 500px;
+}
+
+.loginButton{
+  align-items: center;
+}
+
+body{
+  background-color: #ddd;
+}
+.error{
+  color: rgba(221, 27, 27, 0.856);
+}
+
 /* #root {
   max-width: 1280px;
   margin: 0 auto;
