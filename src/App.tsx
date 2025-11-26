@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from './pages/login'
-import ToDo from './pages/toDO'
+import Login from './pages/Login'
+import ToDo from './pages/ToDO'
 import './App.css'
 
 
@@ -10,7 +10,7 @@ function App() {
       <Router>
         <Routes>
           <Route path="/" element ={<Login/>}/>
-          <Route path="/todo" element ={<ToDo/>}/>
+          <Route path="/ToDo" element ={<ToDo/>}/>
         </Routes>
       </Router>
     </>

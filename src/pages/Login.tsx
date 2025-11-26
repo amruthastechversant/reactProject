@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
-function Login(){
+const Login = () =>{
     const Navigate = useNavigate();
     const[error,setError] = useState("");
     const[formData,setFormData] = useState({
@@ -39,12 +39,10 @@ function Login(){
 
         setError("");
         if(formData.email =="amrutha@gmail.com" && formData.password == "123"){
-            Navigate("/tsodo")
+            Navigate("/ToDO")
         }else{
             setError("Invalid credentials");
         }
-        
-        console.log(formData);
     }
 
     return(

@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import Modal from '../components/modal';
 
 function ToDo(){
     const [task,setTask] = useState<string>("");
     const [tasks,setTasks] = useState<string[]>([]);
     const [editIndex,seteditIndex] = useState<number|null>(null);
     const [error,setError] = useState<string>("");
+    const [openModal,setopenModal] = useState(false);
+    const [deleteIndex,setdeleteIndex] = useState<number|null>(null);
     const addorUpdateTask = ()=>{
         if(task.trim()===""){
             setError("Enter Tasks");
@@ -20,13 +23,17 @@ function ToDo(){
         seteditIndex(null);
         setTask("");
         }else{
-        setTasks([...tasks,task]);
+        setTasks([task,...tasks]);
         setTask("");
         }
     }
 
-    const deleteTask = (index:number) => {
-        setTasks(tasks.filter((_, i) => i !== index));
+    const deleteTask = () => {
+        if(deleteIndex != null){
+            setTasks(tasks.filter((_, i) => i !== deleteIndex));
+        }
+        setopenModal(false);
+
     };
 
     const editTask = (index:number) => {
@@ -34,6 +41,18 @@ function ToDo(){
         seteditIndex(index);
     }
 
+    // const handleConfirm = () =>{
+    //     setopenModal(false);
+    //     alert("confirmed")
+    // }
+
+    // const handleCancel = () =>{
+    //     setopenModal(false);
+    // }
+    const handleDelete = (index:number) =>{
+        setdeleteIndex(index);
+        setopenModal(true);
+    }
     return (
         <>
             <div className='todo-container'>
@@ -45,14 +64,21 @@ function ToDo(){
                 {error && <p className="error">{error}</p>}
                 <ul className='todo-list'>
                 {tasks.map((item,index) =>(
-                <li key={index} className='todo-item'>
-                    {item}
-                    <button onClick={()=>editTask(index)} className='edit-btn'>EDIT</button>
-                    <button onClick={()=>deleteTask(index)} className='delete-btn'>DELETE</button>
-                </li>
+                    <li key={index} className='todo-item'>
+                        {item}
+                        <button onClick={()=>editTask(index)} className='edit-btn'>EDIT</button>
+                        <button onClick={()=>handleDelete(index)} className='delete-btn'>DELETE</button>
+                    </li>
                 ))}
                 </ul>
             </div>
+            <Modal
+                isOpen = {openModal}
+                title = "Delete Task"
+                message = "Are you sure want to delete this Task?"
+                onConfirm = {deleteTask}
+               onCancel={() => setopenModal(false)}
+            />
         </>
     )
 }
