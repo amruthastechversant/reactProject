@@ -1,4 +1,4 @@
-
+/* 
 .todo-container{
   max-width: 400px;
   margin: 0 auto;
@@ -10,7 +10,17 @@
   box-shadow: 0 4px 10px rgba(0,0,0,0.1);
   justify-content: center;
   margin-left: 500px;
+} */
+.todo-container {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 25px;
+  background-color: #523e3e;
+  border-radius: 12px;
+  justify-content: center;
+  margin-left: 500px;
 }
+
 
 .todo-input {
   width: 70%;
@@ -50,7 +60,10 @@
   border: 1px solid hsl(0, 0%, 87%);
 }
 
-
+.input-div{
+  display: flex; 
+  align-items: center; 
+}
 .delete-btn {
   background-color: #357e53;
   color: white;
@@ -58,6 +71,7 @@
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
+  margin-right: 10px;
 }
 
 .delete-btn:hover {
@@ -66,6 +80,13 @@
 
 .edit-btn{
   background-color: #441e0f ;
+  cursor: pointer;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+
+.status-btn{
+  margin-right: 10px;
 }
 
 .login-outer-div{
@@ -84,6 +105,9 @@
   align-items: center;
 }
 
+.undo-btn{
+  margin-left: 10px;
+}
 body{
   background-color: #ddd;
 }
@@ -139,6 +163,30 @@ body{
 .message{
   color:#000000;
 }
+
+/* react icon css */
+.icon {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+.edit-icon {
+  color: #007bff;
+}
+
+.edit-icon:hover {
+  color: #0056b3;
+}
+
+.delete-icon {
+  color: #d9534f;
+}
+
+.delete-icon:hover {
+  color: #a71d2a;
+}
+
 
 /* Simple animation */
 @keyframes fadeIn {
